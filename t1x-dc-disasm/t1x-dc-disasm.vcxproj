@@ -79,7 +79,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\dc\dc.h" />
+    <ClInclude Include="src\dc\render-settings\render-settings.h" />
+    <ClInclude Include="src\dc\startup\startup.h" />
     <ClInclude Include="src\dc\state-script\state-script.h" />
+    <ClInclude Include="src\dc\tasks\tasks.h" />
     <ClInclude Include="src\script\script-manager-eval.h" />
     <ClInclude Include="src\script\script-module.h" />
     <ClInclude Include="src\ss-debug\state-script-debug.h" />

@@ -39,6 +39,15 @@
     <ClInclude Include="src\stringid\stringid-cache.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\dc\render-settings\render-settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dc\tasks\tasks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dc\startup\startup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\script\script-manager-eval.cpp">

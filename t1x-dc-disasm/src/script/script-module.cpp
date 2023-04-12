@@ -15,6 +15,8 @@
 #include <stdlib.h>
 #include <intrin.h> //bittest
 
+extern uintptr_t g_moduleBase;
+
 void Module::DumpEntry(Entry* pEntry)
 {
 	StringId64 scriptType = pEntry->m_typeId;
@@ -34,9 +36,35 @@ void Module::DumpEntry(Entry* pEntry)
 			break;
 		}
 
+		case SID("int32"):
+		{
+			printf("    int32 '%s = %d\n", StringIdToStringInternal(pEntry->m_scriptId), *reinterpret_cast<int32_t*>(pEntry->m_entryPtr));
+			break;
+		}
+
+		case SID("symbol"):
+		{
+			printf("    symbol '%s ", StringIdToStringInternal(pEntry->m_scriptId));
+			printf("= '%s\n", StringIdToStringInternal(*reinterpret_cast<StringId64*>(pEntry->m_entryPtr)) );
+			break;
+		}
+
+		case SID("float"):
+		{
+			printf("    float '%s = '%f\n", StringIdToStringInternal(pEntry->m_scriptId), *reinterpret_cast<float*>(pEntry->m_entryPtr));
+			break;
+		}
+
+		case SID("boolean"):
+		{
+			printf("    boolean '%s = '%s\n", StringIdToStringInternal(pEntry->m_scriptId), *reinterpret_cast<bool*>(pEntry->m_entryPtr) == 1 ? "#t" : "#f");
+			break;
+		}
+
 		default:
 		{
-			printf("Found #%.16llX -> '%s\n", scriptType, StringIdToStringInternal(scriptType));
+			printf("Unhandled case @ 0x%016llX\n    '%s ", (reinterpret_cast<uintptr_t>(pEntry) - g_moduleBase), StringIdToStringInternal(scriptType));
+			printf("'%s = ???\n", StringIdToStringInternal(pEntry->m_scriptId) );
 			break;
 		}
 	}

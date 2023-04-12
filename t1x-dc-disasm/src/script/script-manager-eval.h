@@ -153,3 +153,4 @@ DC::Variant ExecuteScriptCode(ScriptLambda* pLambda);
 void DebugDumpRegisters(DC::StackFrame* pFrame);
 
 void PrintCallArgs(DC::StackFrame* pFrame, int count);
+
