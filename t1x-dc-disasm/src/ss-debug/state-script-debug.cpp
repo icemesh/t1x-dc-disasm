@@ -376,7 +376,7 @@ void PrintTrackGroup(SsTrack* pTrack)
 
 void DumpScript(StateScript* pStateScript)
 {
-	printf("(location \"%s\":%d)\n", pStateScript->m_pDebugFileName, pStateScript->m_line);
+	printf("  :location \"%s\":%d)\n", pStateScript->m_pDebugFileName, pStateScript->m_line);
 	printf("  :initial-state '%s  //value @ %08llX\n", StringIdToStringInternal(pStateScript->m_initialStateId), ((uintptr_t) & (pStateScript->m_initialStateId) - g_moduleBase));
 	//dump eventual ss-options
 	SsOptions* pOptions = pStateScript->m_pSsOptions;
